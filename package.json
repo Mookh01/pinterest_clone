@@ -1,0 +1,28 @@
+{
+  "name": "book_trading_club",
+  "version": "1.0.0",
+  "description": "fcc book trading club",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "keith moore",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.14.1",
+    "express-session": "^1.15.1",
+    "express-sessions": "^1.0.6",
+    "express-validator": "^3.1.2",
+    "google-books-search": "^0.3.1",
+    "mongoose": "^4.8.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "socket.io": "^1.7.3"
+  }
+}

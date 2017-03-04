@@ -1,0 +1,68 @@
+<% layout('/layout') %>
+<% block('title', 'Book Trading Club')%>
+
+<script type="text/javascript" src="" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="/script.js" defer></script>
+
+<div id="stocks">
+    <ul></ul>
+     <h2> Welcome <%= userN[0].person %></h2>
+    <div class="form-group">
+        <form >
+            <div class="wrapper">
+            <input class="form-control input" placeholder="Book Name">
+            <button class="btn btn-success submit">Submit</button>
+            </div>
+             <a  href="/tributes" class="userbooks">My Books</a><br>
+            
+              <button class="btn btn-warning ">Requests I've Made</button>
+             <button class="btn btn-danger ">Requests To Me</button>
+             
+             <div class=table>
+                    <div id="book_request"></div>
+                </div>
+                 <table>
+ <tr>
+ <% myrequest.forEach(function(myreq){ %>
+  <td>
+  <div class="wrapper"> 
+    </div>
+      <h5><%= myreq.title %></h5>
+   <p> <%= myreq.author %> </p> 
+   </td>
+  <% }) %> 
+</tr>
+  </table>
+            </form>
+    </div>
+    <span class="checkerror"></span>
+
+    <br>
+</div>
+<div class=table>
+ <div id="book_cover"></div>
+</div>
+
+
+<div class=wrapper > 
+<div class=row > 
+ <div id="book_group">
+  <table>
+ <tr>
+ <% library.forEach(function(lib){ %>
+  <td>
+  <div class="wrapper"> 
+   <img src=<%= lib.img %> > <a class="btn-small" id="<%= lib.title %>" onClick='reQuest(this);' name="<%= lib.author %> "><span class="glyphicon glyphicon-transfer"></span></a>
+    </div>
+      <h5><%= lib.title %></h5>
+   <p> <%= lib.author %> </p> 
+   </td>
+  <% }) %> 
+</tr>
+  </table>
+    </div> 
+    </div> 
+    </div> 
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>

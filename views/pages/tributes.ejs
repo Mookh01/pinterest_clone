@@ -1,0 +1,36 @@
+<% layout('/layout') %>
+<% block('title', 'My Books')%>
+
+<script type="text/javascript" src="" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="/script.js" defer></script>
+
+<div id="stocks">
+    <ul></ul>
+    <div class="form-group">
+    <form>
+           <a type="button" href="/" class="mainpage">Main Page</a>
+           </form>
+    </div>
+    <span class="checkerror"></span>
+
+    <br>
+</div>
+<h2> My Books </h2>
+<div class=wrapper > 
+<div class=row > 
+ <div id="book_tributes">
+  <table>
+ <tr>
+<% library.forEach(function(lib){ %>
+  <td><img src=<%= lib.img %> >
+      <h5><%= lib.title %></h5>
+   <p> <%= lib.author %> </p> </td>
+  <% }) %> 
+</tr>
+  </table>
+    </div> 
+    </div> 
+    </div> 
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>

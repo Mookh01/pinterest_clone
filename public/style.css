@@ -1,0 +1,51 @@
+.middle {
+    margin: 150px;
+}
+
+table {
+    list-style: none;
+    text-align: center;
+    /*display: inline;*/
+}
+
+td {
+    width: 150px;
+    padding: 20px;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+.focal {
+    margin: 120px;
+}
+
+#book_cover {
+    background-color: lightgoldenrodyellow;
+}
+
+#book_group {
+    text-align: center;
+    background-color: deepskyblue;
+}
+
+#book_tributes {
+    text-align: center;
+    background-color: orangered;
+}
+
+.wrapper {
+    position: relative;
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.wrapper .glyphicon {
+    font-size: 2.5em;
+    position: absolute;
+    top: 5px;
+    left: 95px;
+    background-color: rgba(255, 255, 255, 0.69);
+    border-radius: 10px;
+}

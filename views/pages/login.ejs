@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title><%=blocks.title%></title>
+</head>
+<body>
+<nav class="wrapper" style="font-size: 2.2em;"> FreeCodeCamp Book Trading</nav>
+
+
+<div class="container">
+    < body >
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/" class="loggedout">HOME</a></li>
+              <li><a href="/auth/signup" class="loggedout">SIGNUP</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="main-content"></div>
+      </div>
+    </body>
+    <h1>PLEASE LOGIN:</h1>
+    <!--? insert role="form"-->
+    <form action="/auth/login" method="post">
+      <fieldset class="form-group">
+        <label>Username:</label>
+        <textarea name="username" type="text" placeholder="Enter a Username" required class="form-control input-sm"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>Password:</label>
+        <textarea name="password" type="password" placeholder="Enter Password" required class="form-control input-sm"></textarea>
+      </fieldset>
+      <!--a.btn.btn-primary(href="") Submit-->
+      <button type="submit" value="Log In" class="btn btn-primary">Submit</button><a href="/" class="btn btn-default">Cancel</a>
+    </form>
+
+    <footer>
+    <div class="row">
+    
+        </div>
+    </footer>
+</div> <!-- /container -->
+</body>
+</html>
