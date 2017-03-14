@@ -12,7 +12,6 @@ module.exports = function(server) {
                 var data = [];
                 //GOOGLE API: Sorting info into array.
                 books.search(text, function(error, results) {
-                    // books.search('Professional JavaScript for Web Developers', function(error, results) {
                     if (!error) {
                         for (var i = 0; i < results.length; i++) {
 
@@ -20,39 +19,14 @@ module.exports = function(server) {
                             var authors = results[i].authors;
                             var thumbnail = results[i].thumbnail;
                             data.push([thumbnail, title, authors]);
-                            // data.push([thumbnail, title, authors]);
-
-
                         }
                         io.sockets.emit('create', data);
                     } else {
                         console.log(error);
                     }
                 });
-
             }
             bookSearching();
-
         });
-
-        // socket.on('store', function(inventory, cb) {
-        //     console.log(inventory);
-        //     var newBook = mybooks({
-        //         img: inventory[0],
-        //         title: inventory[1],
-        //         author: inventory[2]
-        //     });
-        //     newBook.save(function(err) {
-        //         if (err) throw err;
-        //         console.log("Check Mongo for saved book");
-        //         // userInformation()
-        //     });
-
-
-        // });
     });
-
-    // function userInformation() {
-    //     console.log("user information gather");
-    // }
 };

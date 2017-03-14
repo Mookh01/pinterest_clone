@@ -13,6 +13,8 @@ router.post('/signup', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     var password2 = req.body.password2;
+    var city = req.body.city;
+    var state = req.body.state;
 
     //Validation
     req.checkBody('username', 'username is required').notEmpty();
@@ -40,7 +42,9 @@ router.post('/signup', function(req, res) {
         } else {
             var newUser = new User({
                 username: username,
-                password: password
+                password: password,
+                city: city,
+                state: state
             });
             User.createUser(newUser, function(err, user) {
                 if (err) throw err;
@@ -51,6 +55,7 @@ router.post('/signup', function(req, res) {
         }
     });
 });
+
 //LOGIN
 router.get("/login", function(req, res) {
     res.render("login");
@@ -85,7 +90,7 @@ passport.use(new LocalStrategy(
         });
     }));
 
-    router.post("/login", passport.authenticate('local', {
+router.post("/login", passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/auth/login',
         failureFlash: true

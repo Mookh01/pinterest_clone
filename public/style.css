@@ -1,33 +1,39 @@
-.middle {
-    margin: 150px;
-}
+/*---------- PRIMARY TAGS ------------------------ */
 
-table {
-    list-style: none;
-    text-align: center;
-    /*display: inline;*/
-}
-
-td {
-    width: 150px;
-    padding: 20px;
+nav {
+    background-color: lightgrey;
+    margin-bottom: 30px;
 }
 
 li {
-    margin-bottom: 20px;
+    list-style: none;
+    display: inline;
+    margin: 10px;
 }
 
-.focal {
-    margin: 120px;
+img {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.44), 0 17px 50px 0 rgba(0, 0, 0, 0.29);
+}
+
+
+/*-------- ID's ---------------------------------*/
+
+#main {
+    background-color: rosybrown;
+}
+
+#navbar {
+    color: black;
+    font-weight: bold;
 }
 
 #book_cover {
-    background-color: lightgoldenrodyellow;
+    float: left;
 }
 
 #book_group {
     text-align: center;
-    background-color: deepskyblue;
+    position: relative;
 }
 
 #book_tributes {
@@ -35,11 +41,145 @@ li {
     background-color: orangered;
 }
 
+
+/*------------- CLASSES ---------------------- */
+
+.body {
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+.nav .navbar-right {
+    margin-right: 30px;
+}
+
+.jumbo-img .img {
+    margin-bottom: 0px;
+    opacity: 0.6;
+    color: black;
+    background: #000 url("http://az616578.vo.msecnd.net/files/2016/09/05/636086969783216903-1953168930_Books_ss_1920.png") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.jumbotron {
+    position: relative;
+    padding: 50px;
+}
+
+.jumbotron .container {
+    z-index: 2;
+    position: relative;
+    z-index: 2;
+}
+
+.middle {
+    margin: 150px;
+}
+
+.icon-bar {
+    background-color: black;
+}
+
 .wrapper {
     position: relative;
     color: black;
-    background-color: rgb(255, 255, 255);
 }
+
+.focal {
+    margin: 120px;
+}
+
+.home {
+    padding: 5px;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+.sbmit {
+    padding: 5px;
+    color: white;
+    background-color: blue;
+    border-radius: 20px;
+    border-style: outset;
+    border-width: 4px;
+    border-color: silver;
+}
+
+.userbooks {
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+.setting {
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+.loggedout {
+    padding: 5px;
+    color: white;
+    background-color: darkslategrey;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+.from {
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.myrequestlist {
+    list-style: none;
+    display: inline-block;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.myrequest {
+    background-color: sandybrown;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.requestfrom {
+    background-color: rosybrown;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.location {
+    background-color: dodgerblue;
+    width: 200px;
+    padding: 20px;
+    margin: 0px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.searchresults {
+    margin: 5px;
+}
+
+
+/*------ GLYPHICON CLASSES ------------------ */
 
 .wrapper .glyphicon {
     font-size: 2.5em;
@@ -48,4 +188,122 @@ li {
     left: 95px;
     background-color: rgba(255, 255, 255, 0.69);
     border-radius: 10px;
+}
+
+.wrapper .glyphicon:hover {
+    font-size: 2.5em;
+    position: absolute;
+    top: 5px;
+    left: 95px;
+    background-color: rgba(255, 255, 255, 0.69);
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.44), 0 17px 50px 0 rgba(0, 0, 0, 0.29);
+}
+
+.remove1 .glyphicon {
+    color: red;
+    top: -35px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.remove1 .glyphicon:hover {
+    color: orange;
+    top: -35px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.remove2 .glyphicon {
+    color: red;
+    top: -0px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.remove2 .glyphicon:hover {
+    color: orange;
+    top: -0px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.remove3 .glyphicon {
+    color: red;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.remove3 .glyphicon:hover {
+    color: orange;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ok .glyphicon {
+    color: green;
+    top: -35px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.ok .glyphicon:hover {
+    color: orange;
+    top: -35px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.okgo .glyphicon {
+    color: green;
+    top: -10px;
+    left: 70px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.okgo .glyphicon:hover {
+    color: orange;
+    top: -10px;
+    left: 70px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.transfer .glyphicon {
+    color: black;
+    top: -10px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    border-style: outset;
+}
+
+.transfer .glyphicon:hover {
+    color: orange;
+    top: -10px;
+    left: 0px;
+    display: inline-block;
+    font-size: 1.8em;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

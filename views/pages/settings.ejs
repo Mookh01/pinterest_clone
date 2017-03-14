@@ -1,0 +1,44 @@
+<% layout('/layout') %>
+<% block('title', 'User Settings')%>
+
+<script type="text/javascript" src="" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+
+    <h2>Current User Location:</h2>
+      <div class="wrapper location">
+         <h3><%= user.city %>, </h3>
+         <h3><%= user.state %></h3> 
+      </div>
+    <h3>Change City/State:</h3>
+    <!--? insert role="form"-->
+    <form action="/settings" method="post">
+      <fieldset class="form-group">
+        <label>City:</label>
+        <textarea name="city" type="text" placeholder="Enter a City" class="form-control input-sm"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>State:</label>
+        <textarea name="state" type="text" placeholder="Enter a State" class="form-control input-sm"></textarea>
+      </fieldset>
+      <button  href="server/settings" value="settings" class="btn btn-primary">Submit</button>
+      <a href="/" class="btn btn-default">Cancel</a>
+      <hr>
+          <h3>Change Password:</h3>
+     <fieldset class="form-group">
+        <label>New Password:</label>
+        <textarea name="password" type="text" placeholder="Enter a New Password" class="form-control input-sm"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>Enter New Password Again:</label>
+        <textarea name="password2" type="text" placeholder="Enter New Password Again" class="form-control input-sm"></textarea>
+      </fieldset>
+
+      <button  href="server/settings" value="settings" class="btn btn-primary">Submit</button>
+      <a href="/" class="btn btn-default">Cancel</a>
+          </form>
+
+
+
+    </body>
+
+</html>

@@ -6,9 +6,11 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true, unique: true },
+    city: { type: String },
+    state: { type: String },
     mybooks: [{ img: String, title: String, author: String }],
-    myrequest: [{ title: String, author: String }],
-    requestFrom: [{ title: String, author: String }]
+    myrequest: [{ title: String, author: String, bookowner: String }],
+    requestFrom: [{ title: String, author: String, requester: String }]
 
 });
 

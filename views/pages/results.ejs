@@ -1,0 +1,24 @@
+<% layout('/layout') %>
+<% block('title', 'Book Trading Club')%>
+
+<script type="text/javascript" src="" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="/script.js" defer></script>
+
+    <div class="form-group">
+    <div id="book_cover">
+    <table>
+ <tr>
+ <% searchResults.forEach(function(result){ %>
+  <td>
+  <div class="wrapper"> 
+   <img src=<%= result.img %> > <a class="btn-small" id="<%= result.title %>" onClick='reQuest(this);' name="<%= result.author %> "><span class="glyphicon glyphicon-transfer"></span></a>
+    </div>
+      <h5><%= result.title %></h5>
+   <p><%= result.author %></p> 
+   </td>
+  <% }) %> 
+</tr>
+  </table>
+  </div>
+    </div>
