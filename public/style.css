@@ -11,12 +11,17 @@ li {
     margin: 10px;
 }
 
-img {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.44), 0 17px 50px 0 rgba(0, 0, 0, 0.29);
-}
-
 
 /*-------- ID's ---------------------------------*/
+
+#twitter {
+    background-image: url(../image/twitter.png);
+    background-size: 32px;
+    background-repeat: no-repeat;
+    margin: 10px;
+    width: 100px;
+    text-align: right;
+}
 
 #main {
     background-color: rosybrown;
@@ -41,6 +46,15 @@ img {
     background-color: orangered;
 }
 
+#poptitle {
+    /*text-align: right;*/
+    margin: 15px;
+    margin-left: 50px;
+    border-radius: 5px;
+    width: 250px;
+    /*float: left;*/
+}
+
 
 /*------------- CLASSES ---------------------- */
 
@@ -53,41 +67,12 @@ img {
     margin-right: 30px;
 }
 
-.jumbo-img .img {
-    margin-bottom: 0px;
-    opacity: 0.6;
-    color: black;
-    background: #000 url("http://az616578.vo.msecnd.net/files/2016/09/05/636086969783216903-1953168930_Books_ss_1920.png") center center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.jumbotron {
-    position: relative;
-    padding: 50px;
-}
-
-.jumbotron .container {
-    z-index: 2;
-    position: relative;
-    z-index: 2;
-}
-
-.middle {
-    margin: 150px;
-}
-
 .icon-bar {
     background-color: black;
 }
 
-.wrapper {
+.linedup {
+    display: inline;
     position: relative;
     color: black;
 }
@@ -104,21 +89,19 @@ img {
     border-style: outset;
 }
 
+
+/* ------ Sign Up ------- */
+
 .sbmit {
     padding: 5px;
+    width: 300px;
     color: white;
     background-color: blue;
     border-radius: 20px;
     border-style: outset;
     border-width: 4px;
     border-color: silver;
-}
-
-.userbooks {
-    padding: 5px;
-    color: white;
-    border-radius: 10px;
-    border-style: outset;
+    text-align: center;
 }
 
 .setting {
@@ -144,27 +127,6 @@ img {
     margin-left: 10px;
 }
 
-.myrequestlist {
-    list-style: none;
-    display: inline-block;
-    font-size: 1em;
-    padding: 5px;
-    border-radius: 20px;
-    margin-left: 10px;
-}
-
-.myrequest {
-    background-color: sandybrown;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.requestfrom {
-    background-color: rosybrown;
-    padding: 5px;
-    border-radius: 20px;
-}
-
 .location {
     background-color: dodgerblue;
     width: 200px;
@@ -174,136 +136,210 @@ img {
     border-radius: 10px;
 }
 
-.searchresults {
-    margin: 5px;
+.magic {
+    /*text-align: right;*/
+    margin: 15px;
+    margin-left: 50px;
+    border-radius: 5px;
+    width: 400px;
+    /*float: left;*/
 }
 
-
-/*------ GLYPHICON CLASSES ------------------ */
-
-.wrapper .glyphicon {
-    font-size: 2.5em;
-    position: absolute;
-    top: 5px;
-    left: 95px;
-    background-color: rgba(255, 255, 255, 0.69);
-    border-radius: 10px;
-}
-
-.wrapper .glyphicon:hover {
-    font-size: 2.5em;
-    position: absolute;
-    top: 5px;
-    left: 95px;
-    background-color: rgba(255, 255, 255, 0.69);
-    border-radius: 10px;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.44), 0 17px 50px 0 rgba(0, 0, 0, 0.29);
-}
-
-.remove1 .glyphicon {
-    color: red;
-    top: -35px;
-    left: 0px;
-    display: inline-block;
-    font-size: 1.5em;
+.btn:hover {
     border-style: outset;
-}
-
-.remove1 .glyphicon:hover {
-    color: orange;
-    top: -35px;
-    left: 0px;
-    display: inline-block;
-    font-size: 1.8em;
+    border-width: 5px;
+    border-radius: 10px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.remove2 .glyphicon {
-    color: red;
-    top: -0px;
+
+/* ----------------- POPUPS ----------------------- */
+
+.popup {
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0px;
     left: 0px;
-    display: inline-block;
-    font-size: 1.5em;
-    border-style: outset;
+    background: rgba(0, 0, 0, 0.75);
 }
 
-.remove2 .glyphicon:hover {
-    color: orange;
-    top: -0px;
-    left: 0px;
+
+/* Inner */
+
+.popup-inner {
+    max-width: 700px;
+    width: 90%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+    border-radius: 3px;
+    background: #fff;
+}
+
+
+/* Close Button */
+
+.popup-close {
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
     display: inline-block;
-    font-size: 1.8em;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: ease 0.25s all;
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    border-radius: 1000px;
+    background: rgba(0, 0, 0, 0.8);
+    font-family: Arial, Sans-Serif;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100%;
+    color: #fff;
+}
+
+.popup-close:hover {
+    -webkit-transform: translate(50%, -50%) rotate(180deg);
+    transform: translate(50%, -50%) rotate(180deg);
+    background: rgba(0, 0, 0, 1);
+    text-decoration: none;
+}
+
+div.container {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.imagebox {
+    width: 200px;
+}
+
+
+/* ----------------------------- GRID ---- */
+
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    background: #EEE;
+    max-width: 1200px;
+}
+
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* ---- grid-item ---- */
+
+.grid-item {
+    width: 160px;
+    height: 120px;
+    color: black;
+    font-weight: bolder;
+    float: left;
+    background: darkorange;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 35px;
+}
+
+
+/*---- image shaping ---------- */
+
+.grid-item--width1 {
+    width: 200px;
+    border-radius: 20px;
+}
+
+.grid-item--height1 {
+    height: 140px;
+}
+
+
+/*---- image shaping ---------- */
+
+.grid-item--width2 {
+    width: 240px;
+    padding-top: 20px;
+    margin: 20px;
+}
+
+.grid-item--height2 {
+    height: 300px;
 }
 
 .remove3 .glyphicon {
     color: red;
-    top: 0px;
-    left: 0px;
+    top: 70px;
+    left: 94px;
     display: inline-block;
     font-size: 1.5em;
     border-style: outset;
+    border-radius: 20px;
 }
 
 .remove3 .glyphicon:hover {
     color: orange;
-    top: 0px;
-    left: 0px;
+    top: 70px;
+    left: 94px;
     display: inline-block;
     font-size: 1.8em;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.ok .glyphicon {
-    color: green;
-    top: -35px;
-    left: 0px;
+
+/*----------------------------------- TOOL TIPS -------*/
+
+#tooltip {
+    position: relative;
     display: inline-block;
-    font-size: 1.5em;
-    border-style: outset;
+    /*border-bottom: 1px dotted black;*/
 }
 
-.ok .glyphicon:hover {
-    color: orange;
-    top: -35px;
-    left: 0px;
-    display: inline-block;
-    font-size: 1.8em;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 2px;
+    position: absolute;
+    z-index: 1;
+    bottom: 85%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
-.okgo .glyphicon {
-    color: green;
-    top: -10px;
-    left: 70px;
-    display: inline-block;
-    font-size: 1.5em;
-    border-style: outset;
+#tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
 }
 
-.okgo .glyphicon:hover {
-    color: orange;
-    top: -10px;
-    left: 70px;
-    display: inline-block;
-    font-size: 1.8em;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
-.transfer .glyphicon {
-    color: black;
-    top: -10px;
-    left: 0px;
-    display: inline-block;
-    font-size: 1.5em;
-    border-style: outset;
-}
-
-.transfer .glyphicon:hover {
-    color: orange;
-    top: -10px;
-    left: 0px;
-    display: inline-block;
-    font-size: 1.8em;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

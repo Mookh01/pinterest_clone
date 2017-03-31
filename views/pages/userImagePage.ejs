@@ -1,0 +1,55 @@
+<% layout('/layout') %>
+<% block('title', 'Pinterest-Clone')%>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
+    <script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
+    <script type="text/javascript" src="" defer></script>
+    <script src="/script.js" defer></script>
+<br>
+<br>
+<h1>MY PAGE</h1>
+
+ <button class="btn" data-popup-open="popup-1" href="#"> IMAGE SEARCH</button>
+ <br><br>
+<div class="grid">
+    
+    <% library.forEach(function(lib){ %>
+    <div class="grid-item grid-item--width2 grid-item--height2" >   
+    <img class=" grid-item--width1 grid-item--height1" src=<%= lib.img  %> onerror="imgError(this);" />
+    <p><%= lib.title %></p>
+    <a class="btn-small remove3" id="<%= lib.title %>" onClick='permanentRemoval(this);' ><span class="glyphicon glyphicon-remove"></span> </a>
+  </div>
+     <% }) %> 
+</div>
+<h3>You Can Remove Your Images From This Page</h3>
+<body>
+
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class=wrapper>
+        <h3> Add An Image URL </h3>
+        <form method="post" action="/pages/source">        
+          <div id="magic" ></div>
+         <div class=wrapper>
+        <h3> Title:</h3><input id="poptitle" type="text" name="title" required></div>
+         <div class=wrapper>
+         <h3>Source (http link):</h3>
+         <input type="text" class="magic" id="fname" name="urlimage" placeholder="copy and paste url here"> 
+         </div>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        <button id="text" type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+</body>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>

@@ -1,103 +1,37 @@
 <% layout('/layout') %>
-<% block('title', 'Book Trading Club')%>
+<% block('title', 'Pinterest-Clone')%>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="" defer></script>
-<script src="/socket.io/socket.io.js" defer></script>
 <script src="/script.js" defer></script>
+
 <div>
-  <h2> Welcome <%= userN[0].person %></h2>
-  <br>
-     <div class="form-group">
-<form >
-            <div class="wrapper">
-            <input style="border-style: inset" class="form-control input" placeholder="Book Name">
-            <button style="margin:10px" class="btn-lg sbmit">Submit</button>
-            </div>
-            <hr>
 <br>
 <br>
-    <div class="container">
-        <div class="row bkcvr">
-        <div id="book_cover"></div>
-    </div>
-    </div>
-</form>  
-
-
-
-       <div class="container"> 
-            <h4 class="myrequest">My Book Requests <%=myrequest.length %></h4>
-            <hr> 
-             <div class="row">     
-                <div id="book_request"></div>   
-                    <% myrequest.forEach(function(myreq){ %>
-             <ul class="myrequestlist" >
-                 <div > 
-                     <li>
-                       <div class="wrapper"> 
-                        <h5><%= myreq.title %>: <%= myreq.author %> </h5> 
-                        <a class="btn-small remove1" id="<%= myreq.title %>" onClick='remove(this);' name="<%= myreq.author %> "><span class="glyphicon glyphicon-remove"></span> </a>                  
-                        </div>
-                     <li>
-                 </div>
-             </ul>
-                    <% }) %> 
-           </div>
-    </div>
-
-
- <div class="container"> 
-          <h4 class="requestfrom"> Requests From Others <%=requestfrom.length %></h4>
-           <hr> 
-        <div class="row">
-            <% requestfrom.forEach(function(reqfrm){ %>
-            <ul class="from"> 
-                 <div> 
-                 <li>
-                <div class="wrapper"> 
-                    <a class="btn-small ok" id="<%= reqfrm.title %>" onClick='letMhaveIt(this);' name="<%= reqfrm.author %> "><span class="glyphicon glyphicon-ok"></span> </a>
-                
-                   <h5><%= reqfrm.title %>:  <%= reqfrm.author %> </h5>
-                    </div> 
-                 <div class="wrapper"> 
-                    <a class="btn-small remove2" id="<%= reqfrm.title %>" onClick='decline(this);' name="<%= reqfrm.author %> "><span class="glyphicon glyphicon-remove"></span> </a>
-                 </div>  
-                 </li>      
-           </ul>
-              <% }) %> 
-        </div> 
+<div style="display:inline;">
+<h2 style="text-align:left;"> Go to "MY IMAGES" for Images Search </h2>
+<h2 style="text-align:right;"> Click an Image to Go to Contributors Page </h2>
+</div>
+<div class="grid">
+    <% library.forEach(function(lib){ %>
+    <div  class="grid-item grid-item--width2 grid-item--height2" >   
+     <a id="tooltip" href="/pages/<%= lib.owner%>"><img class=" grid-item--width1 grid-item--height1" src=<%= lib.img  %> onerror="imgError(this);" /><span class="tooltiptext">Enlarge Image In Contributors Page</span></a>
+    <p><%= lib.title %></p>
+    <div class="linedup">
+   <a type="button" id="<%=lib.img%>" class="" onClick='clic(this);' name="<%= lib.title %>" ><span class="glyphicon glyphicon-heart"></span> </a><p><%= lib.likes  %></p>
    </div>
   </div>
-    <span class="checkerror"></span>
-    <br>
+     <% }) %> 
 </div>
 
 
-<div class="container"> 
-     <h3> Book Club Library </h3>
-      <div class="row" id="main">
-        <div id="book_group">
-            <% library.forEach(function(lib){ %>
-          <ul>
-            <div class="col-xs-6 col-xs-2"> 
-            <li> 
-              <div class="wrapper"> 
-                <img src=<%= lib.img %>  width=120> <a class="btn-small transfer" id="<%= lib.title %>" onClick='reQuest(this);' name="<%= lib.author %>"  ><span class="glyphicon glyphicon-transfer"></span></a>
-                </div>
-                <h5> <%= lib.title %> </h5>
-                <p> <%= lib.author %> </p> 
-            </li>
-            </div> 
-         </ul>
-             <% }) %> 
-       </div> 
-    </div> 
-</div> 
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>

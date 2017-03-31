@@ -1,10 +1,11 @@
 var express = require("express");
 var router = express.Router();
 var User = require("./models/user.js");
+var config = require('./_config');
 var flash = require("connect-flash");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-
+var TwitterStrategy = require('passport-twitter').Strategy;
 router.get('/signup', function(req, res) {
     res.render('signup');
 });
@@ -89,7 +90,46 @@ passport.use(new LocalStrategy(
             });
         });
     }));
+//---------Twitter AUTH ----------------------------------------
 
+
+
+router.get("/twitter", passport.authenticate('twitter'));
+router.get("/twitter/callback", passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }))
+passport.use(new TwitterStrategy({
+        consumerKey: config.twitter.consumerKey,
+        consumerSecret: config.twitter.consumerSecret,
+        callbackURL: config.twitter.callbackURL
+    },
+    function(accessToken, refreshToken, profile, done) {
+
+        var searchQuery = {
+            name: profile.displayName
+        };
+
+        var updates = {
+            name: profile.displayName,
+            someID: profile.id
+        };
+
+        var options = {
+            upsert: true
+        };
+
+        // update the user if s/he exists or add a new user
+        User.findOneAndUpdate(searchQuery, updates, options, function(err, user) {
+            if (err) {
+                return done(err);
+            } else {
+                return done(null, user);
+            }
+        });
+    }
+
+));
+
+
+// --------------------------------------------------------------
 router.post("/login", passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/auth/login',

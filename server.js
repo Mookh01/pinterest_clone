@@ -3,20 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var books = require('google-books-search');
-var mybooks = require('./models/book.js');
+var myimages = require('./models/image.js');
 var user = require('./models/user.js');
-var routes = require('./routes/index.js');
 var bodyParser = require('body-parser');
 var Localstrategy = require('passport-local').Strategy;
 var passport = require("passport");
 var app = express();
 var flash = require("connect-flash");
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bookgroup');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pinclone');
 
 //CONNECT FLASH
 var flash = require('connect-flash');
@@ -24,10 +21,11 @@ var flash = require('connect-flash');
 app.engine('ejs', require('ejs-locals'));
 app.set('views', __dirname + '/views/pages');
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 4400);
+app.set('port', process.env.PORT || 3400);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('node_modules/jQuery/dist'));
 var router = express.Router();
 app.use(cookieParser());
 
@@ -72,30 +70,16 @@ app.use(function(req, res, next) {
 
 
 
-//Loads database of books to main page. 
+//Loads database of images to main page. 
 app.get('/', ensureAuthenticated, function(req, res) {
-    var bkauth = req.body.author;
-    var bktitle = req.body.title;
-    var userId = req.user.id;
-    var currentUser = req.user.username;
-    mybooks.find({}, function(err, library) {
-        user.findOne({ "_id": req.user.id }, function(err, data) {
-            if (err) throw err;
-            res.render('index', {
-                library: library,
-                image: library.img,
-                title: library.title,
-                author: library.author,
-                userN: [{ person: currentUser }],
-                userid: [{ id: userId }],
-                myrequest: data.myrequest,
-                requestfrom: data.requestFrom,
-                popauth: bkauth,
-                poptitle: bktitle
-            });
-        });
+    myimages.find({}, function(err, library) {
+        res.render('index', {
+            library: library,
 
-    })
+        });
+    });
+
+    // })
 });
 
 app.get('/settings', ensureAuthenticated, function(req, res) {
@@ -128,14 +112,21 @@ app.post('/settings', function(req, res) {
     res.redirect("/settings");
 });
 
-//User Books Page
-app.get('/tributes', function(req, res) {
-    user.findOne({ "_id": req.user.id }, function(err, data) {
+//User images Page
+app.get('/userimg', ensureAuthenticated, function(req, res) {
+    // myimages.find({}, function(err, library) {
+    //     res.render('userImagePage', {
+    //         library: library,
+
+    //     });
+    // });
+    myimages.find({ "owner": req.user.id }, function(err, data) {
         if (err) throw err;
-        res.render('tributes', {
-            library: data.mybooks,
+        res.render('userImagePage', {
+            library: data,
         });
     })
+
 });
 
 function ensureAuthenticated(req, res, next) {
@@ -154,9 +145,8 @@ var pagesRouter = require("./pages");
 app.use('/pages', pagesRouter);
 
 
+
 var server = require('http').createServer(app);
 server.listen(app.get('port'), function() {
     console.log('Express is running on port ' + app.get('port'));
 });
-
-require('./routes')(server);

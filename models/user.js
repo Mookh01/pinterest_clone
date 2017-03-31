@@ -8,9 +8,8 @@ var userSchema = new Schema({
     password: { type: String, required: true, unique: true },
     city: { type: String },
     state: { type: String },
-    mybooks: [{ img: String, title: String, author: String }],
-    myrequest: [{ title: String, author: String, bookowner: String }],
-    requestFrom: [{ title: String, author: String, requester: String }]
+    myimages: [{ img: String, title: String, url: String, likes: String }],
+    liked: [{ img: String }]
 
 });
 

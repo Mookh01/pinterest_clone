@@ -1,0 +1,36 @@
+<% layout('/layout') %>
+<% block('title', 'Viewing Page')%>
+
+<script type="text/javascript" src="" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="/script.js" defer></script>
+
+
+
+<div class="container"> 
+   <h2> Welcome to <%= creator %>'s Page </h2>
+      <% library.forEach(function(lib){ %>
+    <div class="grid-item grid-item--width2 grid-item--height2" >   
+     <a id="tooltip" type="button" data-popup-open="popup-1"  name="<%= lib.img %>" > 
+     <img class=" grid-item--width1 grid-item--height1" src=<%= lib.img  %> onerror="imgError(this);"  /> <span class="tooltiptext">Click To Enlarge Image</span></a>
+    <p><%= lib.title %></p>
+  </div>
+     <% }) %> 
+ </div>
+</div> 
+
+<body>
+
+ <br><br>
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class=wrapper>
+        <form method="post" action="">        
+          <div id="lgrview"></div>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        </form>
+    </div>
+</div>
+</body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
