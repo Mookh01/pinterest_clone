@@ -4,6 +4,7 @@ node_modules
 # Logs
 logs
 *.log
+_config.js
 npm-debug.log*
 logging.txt
 .DS_Store
