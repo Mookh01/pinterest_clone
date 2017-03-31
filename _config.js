@@ -1,7 +1,7 @@
 var ids = {
     twitter: {
-        consumerKey: 'ox5k4c3p1b0jbjYY9Bpq23vg4',
-        consumerSecret: 'Xqc0eT1Z2JDWnTpQYkGAnQTHtn5BDFJNPiCXXFEmuLB7wi5fbS',
+        consumerKey: '<alpha numeric>',
+        consumerSecret: '<alpha numeric>',
         callbackURL: "https://gentle-tor-56426.herokuapp.com/auth/twitter/callback"
     }
 };
