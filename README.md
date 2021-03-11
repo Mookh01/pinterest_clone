@@ -1,11 +1,8 @@
 # pinterest_clone
 A FreeCodeCamp project to mimic some of the features of the Pinterest image website. 
 
-# Working Application
-https://gentle-tor-56426.herokuapp.com
 
 # Objective:
-Build a full stack JavaScript app that is functionally similar to this: https://midnight-dust.hyperdev.space and deploy it to Heroku.
 
 User Story: As an unauthenticated user, I can login with Twitter.
 
